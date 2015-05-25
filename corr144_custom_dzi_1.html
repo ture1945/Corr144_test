@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <title>DZI Tile Source | OpenSeadragon</title>
+
+    <link rel='stylesheet' 
+          type='text/css'
+          media='screen'
+          href='http://localhost:8080/Documents/GitHub/openseadragon.github.com-master/css/style.css'/>
+
+    <script src="http://localhost:8080/Documents/SeaDragon/openseadragon/openseadragon.min.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/openseadragon/openseadragon"><img 
+       style="position: absolute; top: 0; right: 0; border: 0;" 
+        src="http://localhost:8080/Documents/GitHub/openseadragon.github.com-master/images/forkme_right_darkblue_121621.png" 
+       alt="Fork me on GitHub" /></a>
+    <div id="container">
+        <div class="download">
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.1/openseadragon-bin-1.2.1.zip">
+                <img border="0" width="90" src="http://localhost:8080/Documents/GitHub/openseadragon.github.com-master/images/zip.png"></a>
+            <a href="https://github.com/openseadragon/openseadragon/releases/download/v1.2.1/openseadragon-bin-1.2.1.tar.gz">
+                <img border="0" width="90" src="http://localhost:8080/Documents/GitHub/openseadragon.github.com-master/images/tar.png"></a>
+        </div>
+        <img class="logo" src="http://localhost:8080/Documents/GitHub/openseadragon.github.com-master/images/logo.png">
+        <h1>
+            <a href="/">Allon's OpenSeadragon</a><span class="version">
+                1.2.1
+            </span>
+            <span class="tagline">
+            </span>
+        </h1>
+
+        <div class='navigation'>
+            <ul>
+                <li><a href='/#examples-and-features'
+                    >Examples &amp; Features</a></li>
+                <li><a href='/#plugins'
+                    >Plugins</a></li>
+                <li><a href='/#download'
+                    >Download &amp; Install</a></li>
+                <li><a href='/docs/'
+                    >API Documentation</a></li>
+                <li><a href='/#support'
+                    >Support</a></li>
+                <li><a href='/#development'
+                    >Development</a></li>
+                <li><a href='/#license'
+                    >License</a></li>
+            </ul>
+        </div>
+
+        <h2>
+    example: deep zoom image support
+</h2>
+<p>
+    The DZI (Deep Zoom Image) format is an
+    XML specification maintained by Microsoft and described <a
+    href='http://msdn.microsoft.com/en-us/library/cc645077(v=vs.95).aspx'>here</a>.
+</p>
+<p>
+    OpenSeadragon supports the DZI format via AJAX (XML/JSON), JSONP,
+    and as inline configuration (using the JSON format). The DZI specification 
+    does not officially describe a JSON format, but the 
+    examples below illustrate how DZI XML is mapped to JSON following some
+    simple conventions.
+</p>
+
+
+<div class="description">
+    <h3>Inline Configuration for DZI</h3>
+    <p>
+        Inline configuration is convenient as well because it avoids a potentially
+        complicated JSON/XML AJAX request.  Just drop the equivalent
+        JSON directly into the <code>tileSources</code> option.
+    </p>
+</div>
+<div class="demoarea">
+    <div class="demoheading">
+        Example Inline Configuration for DZI
+    </div>
+    <div id="example-inline-configuration-for-dzi" 
+         class="openseadragon">
+    </div>
+    <p>
+        Configuration is done via the <code>tileSources</code> option
+        (or programmatically).
+    </p>
+    <p>
+        Note however the non-standard DZI property <code>url</code> which we
+        must supply explicitly, since this is normally inferred from the path
+        specified for the DZI XML/JSON/JSONP.
+    </p>
+
+</div>
+
+
+<script type="text/javascript">
+    OpenSeadragon({
+        id:            "example-inline-configuration-for-dzi",
+        prefixUrl:     "http://localhost:8080/Documents/GitHub/openseadragon.github.com-master/openseadragon/images/",
+        showNavigator:  true,
+        tileSources:   {
+            Image: {
+                xmlns:    "http://schemas.microsoft.com/deepzoom/2008",
+                Url:      "http://localhost:8080/Documents/GitHub/example-images/Corr144_test/Corr144_files/",
+                Format:   "jpg", 
+                Overlap:  "1", 
+                TileSize: "256",
+                Size: {
+                    Height: "6013",
+                    Width:  "12629"
+                }
+            }
+        }
+    });
+</script>
+
+
+        <ul class="footer">
+            <li><a href='/#examples-and-features'
+                >Examples &amp; Features</a></li>
+            <li><a href='/#plugins'
+                >Plugins</a></li>
+            <li><a href='/#download'
+                >Download &amp; Install</a></li>
+            <li><a href='/docs/'
+                >API Documentation</a></li>
+            <li><a href='/#support'
+                >Support</a></li>
+            <li><a href='/#development'
+                >Development</a></li>
+            <li><a href='/license/'
+                >License</a></li>
+        </ul>
+    </div>
+
+    <script> // Google Analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-40891712-1', 'github.io');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>
